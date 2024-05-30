@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Disease Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Parkinson's Disease Predictor</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <!-- Add input fields for relevant features -->
+            <label for="feature1">Feature 1</label>
+            <input type="text" name="feature1" required>
+            <label for="feature2">Feature 2</label>
+            <input type="text" name="feature2" required>
+            <!-- Add more input fields as necessary -->
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
